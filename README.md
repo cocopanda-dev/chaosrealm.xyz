@@ -1,2 +1,0 @@
-# chaosrealm.xyz
-cocoserver
