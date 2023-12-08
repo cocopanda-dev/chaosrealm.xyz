@@ -22,11 +22,7 @@ jobs:
         - name: Install kubectl
           uses: azure/setup-kubectl@v3
           with:
-<<<<<<< HEAD
              version: 'v1.28.4'
-=======
-             version: '1.28.4'
->>>>>>> 485afdc (update CI to deploy to aws eks)
           id: install
   
         - name: Configure AWS credentials
