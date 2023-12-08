@@ -17,5 +17,6 @@ spec:
       containers:
       - name: nginx
         image: 270658353509.dkr.ecr.us-east-2.amazonaws.com/chaosrealm:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
