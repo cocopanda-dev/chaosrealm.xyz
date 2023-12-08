@@ -22,7 +22,11 @@ jobs:
         - name: Install kubectl
           uses: azure/setup-kubectl@v3
           with:
+<<<<<<< HEAD
              version: 'v1.28.4'
+=======
+             version: '1.28.4'
+>>>>>>> 485afdc (update CI to deploy to aws eks)
           id: install
   
         - name: Configure AWS credentials
@@ -45,7 +49,7 @@ jobs:
             REPOSITORY: chaosrealm
             IMAGE_TAG: ${{ github.sha }}
           run: |
-            docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -t $REGISTRY/$REPOSITORY:$IMAGE_TAG:latest .
+            docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -t latest .
             docker push -a $REGISTRY/$REPOSITORY
         
         - name: Update Kubernetes config file
