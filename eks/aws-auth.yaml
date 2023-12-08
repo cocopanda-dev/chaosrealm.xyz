@@ -9,3 +9,8 @@ data:
       username: github-ci
       groups:
         - system:masters
+  mapRoles: |
+    - rolearn: arn:aws:iam::270658353509:role/github-ci
+      username: github-ci
+      groups:
+        - system:masters
