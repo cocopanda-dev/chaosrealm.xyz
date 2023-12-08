@@ -18,8 +18,12 @@ spec:
       - name: nginx
         image: 270658353509.dkr.ecr.us-east-2.amazonaws.com/chaosrealm:latest
 <<<<<<< HEAD
+<<<<<<< HEAD
         imagePullPolicy: Always
 =======
 >>>>>>> 485afdc (update CI to deploy to aws eks)
+=======
+        imagePullPolicy: Always
+>>>>>>> d603782 (add image pull policy)
         ports:
         - containerPort: 8080
