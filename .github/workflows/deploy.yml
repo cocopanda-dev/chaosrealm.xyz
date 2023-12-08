@@ -3,7 +3,8 @@ name: deploy to production
 on:
     push:
         branches: ["master"]
-
+    pull_request:
+        branches: ["master"]
 env:
   AWS_REGION : us-east-2
 permissions:
@@ -46,8 +47,8 @@ jobs:
             REPOSITORY: chaosrealm
             IMAGE_TAG: ${{ github.sha }}
           run: |
-            docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -t latest .
-            docker push -a $REGISTRY/$REPOSITORY
+            docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+            docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
         
         - name: Update Kubernetes config file
           run: |
