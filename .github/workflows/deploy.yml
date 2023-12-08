@@ -3,6 +3,7 @@ name: deploy to production
 on:
     push:
         branches: ["master"]
+
 env:
   AWS_REGION : us-east-2
 permissions:
@@ -51,6 +52,10 @@ jobs:
         - name: Update Kubernetes config file
           run: |
             aws eks update-kubeconfig --name chaosrealm --region ${{ env.AWS_REGION }}
+        
+        - name: check caller identity #check if the role is assumed
+          run: |
+            aws sts get-caller-identity
 
         - name: Deploy image to AWS EKS
           run: |
