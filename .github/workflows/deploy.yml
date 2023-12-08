@@ -51,6 +51,10 @@ jobs:
         - name: Update Kubernetes config file
           run: |
             aws eks update-kubeconfig --name chaosrealm --region ${{ env.AWS_REGION }}
+        
+        - name: check caller identity
+          run: |
+            aws sts get-caller-identity
 
         - name: Deploy image to AWS EKS
           run: |
