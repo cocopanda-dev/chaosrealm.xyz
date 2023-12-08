@@ -3,8 +3,7 @@ name: deploy to production
 on:
     push:
         branches: ["master"]
-    pull_request:
-        branches: ["master"]
+
 env:
   AWS_REGION : us-east-2
 permissions:
