@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chaosrealm-deployment
+  labels:
+    app: chaosrealm-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chaosrealm-api
+  template:
+    metadata:
+      labels:
+        app: chaosrealm-api
+    spec:
+      containers:
+      - name: nginx
+        image: 270658353509.dkr.ecr.us-east-2.amazonaws.com/chaosrealm:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
