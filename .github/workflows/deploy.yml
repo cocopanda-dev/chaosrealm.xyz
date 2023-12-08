@@ -48,8 +48,8 @@ jobs:
             IMAGE_TAG: ${{ github.sha }}
           run: |
             docker build -t $REGISTRY/$REPOSITORY:latest .
-            docker push -a $REGISTRY/$REPOSITORY:latest
-        
+            docker push -a $REGISTRY/$REPOSITORY
+
         - name: Update Kubernetes config file
           run: |
             aws eks update-kubeconfig --name chaosrealm --region ${{ env.AWS_REGION }}
