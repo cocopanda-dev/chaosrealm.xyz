@@ -51,7 +51,7 @@ jobs:
 
         - name: Update Kubernetes config file
           run: |
-            aws eks update-kubeconfig --name chaosrealm --region ${{ env.AWS_REGION }}
+            aws eks update-kubeconfig --name chaosrealm_c2 --region ${{ env.AWS_REGION }}
         
         - name: check caller identity #check if the role is assumed
           run: |
