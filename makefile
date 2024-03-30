@@ -1,7 +1,9 @@
 DB_URL=postgresql://postgres:mysecretpassword@localhost:5432/postgres?sslmode=disable
 
+network:
+	docker network create bank-network
 postgres:
-	docker run --name postgres -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+	docker run --name postgres --network bank-network -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:14-alpine
 
 createdb:
 	docker exec -it postgres createdb --username=postgres --owner=postgres simple_bank
@@ -39,4 +41,4 @@ server:
 mock:
 	mockgen -package mockdb -destination db/mock/store.go github.com/simplebank/db/sqlc Store
 
-.PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 db_docs db_schema sqlc test server mock
+.PHONY: network postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 db_docs db_schema sqlc test server mock
