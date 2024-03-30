@@ -20,5 +20,5 @@ services:
             - DB_SOURCE=postgresql://postgres:mysecretpassword@postgres:5432/postgres?sslmode=disable
         depends_on:
             - postgres
-        entrypoint: ["/app/wait-for.sh", "postgres:5432", "--", "/app/start.sh"]
-        command: ["/app/main"]
+        entrypoint: ["/wait-for.sh", "postgres:5432", "--", "/start.sh"]
+        command: ["/main"]
