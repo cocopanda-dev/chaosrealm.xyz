@@ -20,8 +20,8 @@ services:
             - DB_SOURCE=postgresql://postgres:mysecretpassword@postgres:5432/postgres?sslmode=disable
         depends_on:
             - postgres
-        entrypoint: ["/wait-for.sh", "postgres:5432", "--", "/start.sh"]
-        command: ["/main"]
+        entrypoint: ["/app/wait-for.sh", "/app/postgres:5432", "--", "/app/start.sh"]
+        command: ["/app/main"]
     watchtower:
         image: containrrr/watchtower
         volumes:
