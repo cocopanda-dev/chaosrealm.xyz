@@ -17,8 +17,5 @@ jobs:
         - name: Build and push image
           run: |
             docker build . -t cocopanda/chaosrealm:latest
-      
-        - name: publish
-          run: |
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker push cocopanda/chaosrealm:latest
