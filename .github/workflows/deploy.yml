@@ -19,5 +19,5 @@ jobs:
 
         - name: Build and push image
           run: |
-            docker build -t cocopanda/chaosrealm:latest ./dockerfile
+            docker build -t cocopanda/chaosrealm:latest .
             docker push cocopanda/chaosrealm:latest
