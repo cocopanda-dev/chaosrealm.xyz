@@ -22,9 +22,3 @@ services:
             - postgres
         entrypoint: ["/app/wait-for.sh", "/app/postgres:5432", "--", "/app/start.sh"]
         command: ["/app/main"]
-    watchtower:
-        image: containrrr/watchtower
-        volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-        - /root/.docker/config.json:/config.json
-        command: --interval 30
